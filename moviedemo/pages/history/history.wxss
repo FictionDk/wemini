@@ -1,0 +1,14 @@
+.movie {
+  display: flex
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  width: 550rpx;
+}
+
+.movie-image {
+  width: 200rpx;
+  height: 200rpx;
+}

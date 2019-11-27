@@ -1,0 +1,6 @@
+<view class="container">
+  <image src="/images/like.jpg" class="about-banner"></image>
+  <text class="h1">电影周周看</text>
+  <navigator url='/pages/weekly/weekly' hover-class="nav-hover" open-type="switchTab">每周推荐 一部好片</navigator>
+  <text>我的微博  weibo.com/ficito</text>
+</view>

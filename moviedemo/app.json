@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/about/about",
+    "pages/weekly/weekly",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/history/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "电影推荐",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "tabBar": {
+    "list": [
+      {
+        "text": "每周推荐",
+        "pagePath": "pages/weekly/weekly",
+        "iconPath": "images/icon/weekly.png",
+        "selectedIconPath": "images/icon/weekly_select.png"
+      },
+      {
+        "text": "关于",
+        "pagePath": "pages/about/about",
+        "iconPath": "images/icon/about.png",
+        "selectedIconPath": "images/icon/about_select.png"
+      }
+    ]
+  }
+}
