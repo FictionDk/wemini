@@ -1,8 +1,12 @@
-<view class="container" style="height: 100vh">
-  <text>本周推荐</text>
-  <image src="{{thisWeekMovie.iamgePath}}"></image>
-  <text>{{thisWeekMovie.name}}</text>
-  <text>{{thisWeekMovie.comment}}</text>
-  <text>{{score/count > 10 ? 10 : score/count}}</text>
-  <navigator url="/pages/history/history">历史推荐</navigator>
-</view>
+<swiper class="movie-swiper" indicator-dots='{{ture}}' previous-margin="50rpx" next-margin="50rpx">
+  <swiper-item wx:for="{{weeklyMovies}}" wx:key="index">
+    <view class="container movie-card">
+      <view><text>第{{index+1}}周推荐</text></view>
+      <image src="{{item.imagePath}}"></image>
+      <text>{{item.name}}</text>
+      <text>{{item.comment}}</text>
+      <text>{{item.score/item.count > 10 ? 10 : item.score/item.count}}</text>
+      <navigator url="/pages/history/history">历史推荐</navigator>
+    </view>
+  </swiper-item>
+</swiper>

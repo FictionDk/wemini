@@ -1,1 +1,9 @@
-/* pages/weekly.wxss */
+.movie-swiper {
+  height: 90vh;
+  display: flex;
+}
+
+.movie-card {
+  background: #eee;
+  margin: 0 10rpx;
+}
