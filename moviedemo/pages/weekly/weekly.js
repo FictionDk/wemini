@@ -1,13 +1,6 @@
 Page({
   data: {
-    thisWeekMovie: {
-      name: "Joker",
-      comment: "我们都是小丑,我们都可以是小丑",
-      iamgePath: "/images/joker.png"
-    },
-    count: 113,
-    score: 912,
-    ave: 0,
+    currentIndex: 0,
     weeklyMovies: [{
       name: "蓝色星球2",
       comment: "BBC经典纪录片,豆瓣评分9.6",
@@ -35,7 +28,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    this.setData({
+      currentIndex: this.data.weeklyMovies.length - 1
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -45,10 +42,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    this.data.ave = this.data.score / this.data.count
-    console.log(this.data.ave)
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -83,5 +77,11 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  f0: function(event){
+    this.setData({
+      currentIndex: this.data.weeklyMovies.length - 1
+    })
   }
 })
