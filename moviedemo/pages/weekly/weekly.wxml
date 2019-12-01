@@ -1,13 +1,13 @@
 <swiper class="movie-swiper" indicator-dots='{{ture}}' previous-margin="50rpx" next-margin="50rpx"
   current="{{currentIndex}}">
   <swiper-item wx:for="{{weeklyMovies}}" wx:key="index">
-    <view class="container movie-card">
+    <view class="container movie-card" bindtap="f1" data-movie-name="{{item.name}}">
       <image src="{{item.imagePath}}"></image>
       <text>第{{index+1}}周: {{item.name}}</text>
       <text>{{item.comment}}</text>
       <text>{{item.score/item.count > 10 ? 10 : item.score/item.count}}</text>
       <navigator class='history' url="/pages/history/history">历史推荐</navigator>
-      <text bindtap="f0" wx:if="{{index < (weeklyMovies.length -1)}}" class="return-button">返回本周</text>
+      <text catchtap="f0" wx:if="{{index < (weeklyMovies.length -1)}}" class="return-button">返回本周</text>
     </view>
   </swiper-item>
 </swiper>

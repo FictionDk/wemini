@@ -83,5 +83,13 @@ Page({
     this.setData({
       currentIndex: this.data.weeklyMovies.length - 1
     })
+  },
+
+  f1: function(event){
+    var movieName = event.currentTarget.dataset.movieName
+    console.log(movieName)
+    wx.navigateTo({
+      url: '/pages/detail/detail?name=' + movieName,
+    })
   }
 })
