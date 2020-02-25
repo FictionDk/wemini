@@ -12,36 +12,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.name)
+    console.log(options.name,options.id)
+    var apikey = '0df993c66c0c636e29ecbb5344252a4a'
     this.setData({
-      mName: options.name
+      mName: options.name,
+      mId: options.id
     })
-    wx.cloud.init()
-    console.log(wx.cloud.database())
-    const db = wx.cloud.database()
-    db.collection('movie_detail').where({
-      publishInfo: {
-        name: 'Joker'
-      }
-    }).get({
-      success: function (res) {
-        console.log(res)
-      }
-    })
+    var that = this
+
     wx.request({
-      url: 'https://plasma.stpass.com/society/articles',
+      //url: 'https://plasma.stpass.com/society/articles',
+      url: 'https://plasma.stpass.com/v2/movie/subject/' + options.id+'?apikey=' + apikey,
       method: 'GET',
       header:{
-        "Content-Type":"application/json"
+        "Content-Type":"json"
       },
       success: function(res){
-        console.log(res)
+        if(res.statusCode == 200){
+          that.setData({movie: res.data})
+          wx.hideNavigationBarLoading()
+          wx.setNavigationBarTitle({
+            title: res.data.rating.average +'分: '+res.data.title,
+          })
+        }
       },
       faile: function(){
+        console.log()
       },
       complete: function(){
       }
     })
+
+    wx.showNavigationBarLoading()
   },
 
   /**
@@ -89,8 +91,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return{
+      title:"向你推荐 ["+this.data.movie.title+"]"
+    }
   },
+
   f0: function() {
     const db = wx.cloud.database()
     db.collection('movie_detail').where({

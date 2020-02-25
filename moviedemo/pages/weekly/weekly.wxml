@@ -1,7 +1,7 @@
 <swiper class="movie-swiper" indicator-dots='{{ture}}' previous-margin="50rpx" next-margin="50rpx"
   current="{{currentIndex}}">
   <swiper-item wx:for="{{weeklyMovies}}" wx:key="index">
-    <view class="container movie-card" bindtap="f1" data-movie-name="{{item.name}}">
+    <view class="container movie-card" bindtap="f1" data-movie-name="{{item.name}}" data-movie-id="{{item.doubanId}}">
       <image src="{{item.imagePath}}"></image>
       <text>第{{index+1}}周: {{item.name}}</text>
       <text>{{item.comment}}</text>

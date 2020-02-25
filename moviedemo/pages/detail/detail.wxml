@@ -1,4 +1,8 @@
 <!--pages/detail/detail.wxml-->
 <view class="container">
-  <text>pages for : {{mName}}</text>
+  <image src="{{movie.images.small}}"></image>
+  <text>想看: {{movie.wish_count}}</text>
+  <text>看过: {{movie.collect_count}}</text>
+  <text>评分: {{movie.rating.average}}</text>
+  <text class="movie-detail">简介: {{movie.summary}}</text>
 </view>

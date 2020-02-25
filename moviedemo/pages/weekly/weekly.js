@@ -2,13 +2,15 @@ Page({
   data: {
     currentIndex: 0,
     weeklyMovies: [{
-      name: "蓝色星球2",
-      comment: "BBC经典纪录片,豆瓣评分9.6",
-      imagePath: "/images/center.jpg",
+      doubanId: 1292052,
+      name: "肖申克的救赎",
+      comment: "一部没有爱情与美女的电影,却光芒四射",
+      imagePath: "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg",
       count: 113,
       score: 912,
       isHighCommend: true
     }, {
+      doubanId: 1295644,
       name: "这个杀手不太冷",
       comment: "小萝莉与怪蜀黍的烂漫爱情",
       imagePath: "/images/killer.jpg",
@@ -16,6 +18,7 @@ Page({
       score: 912,
       isHighCommend: true
     }, {
+      doubanId: 27119724,
       name: "Joker",
       comment: "我们都是小丑 我们都可以是小丑",
       imagePath: "/images/joker.png",
@@ -76,20 +79,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: "每周推荐"
+    }
   },
 
-  f0: function(event){
+  f0: function(event) {
     this.setData({
       currentIndex: this.data.weeklyMovies.length - 1
     })
   },
 
-  f1: function(event){
+  f1: function(event) {
+    var movieId = event.currentTarget.dataset.movieId
     var movieName = event.currentTarget.dataset.movieName
-    console.log(movieName)
+    console.log(event.currentTarget.dataset)
+    console.log(movieId,movieName)
     wx.navigateTo({
-      url: '/pages/detail/detail?name=' + movieName,
+      url: '/pages/detail/detail?name=' + movieName + '&id='+movieId
     })
   }
 })
